@@ -1,0 +1,80 @@
+micwo99
+micwo99
+
+==============================================
+=============== UML DIFFERENCES ==============
+==============================================
+
+As we can see from the pdf images of after_uml and before_uml, the design
+has changed a lot in the course of the work done for this exercise.
+Indeed, due to the creation of new objects in the game we have decided to
+create new packages and separate them differently.
+For example,for the Noise class, we thought to put it in the same package as terrain and block
+but at the end we thought it was fairer to put it in the util package with also the class of NumericLife,
+it also creates later in the game.
+We can also notice that the leaves class does not exist in the before_uml.
+This is because we thought we would create several leaves in the Tree class itself.
+but at the end we figured out that it was more advantageous and clearer to create a separate class.
+In conclusion, we have noticed a big change in the construction of our code and its design,
+following the evolution of the game and of course, the complexity of the code as you go through the steps.
+
+
+==============================================
+=============== INFINITE WORLD ===============
+==============================================
+
+In the update function of PepseGameManager we check the position of our avatar
+if it has moved forward by 10 blocks then we create a world that extends 10 blocks forward
+(including trees, monsters and all other kinds of objects that belong to the game)
+depending on the direction in which it is heading.
+In the same way, we also remove all the elements that belong to the world of our game over a distance
+of 10 blocks, located at the end of the screen and opposite to the direction in which the avatar is heading.
+This way it allows us not to keep too many elements in the game in order to prevent the game from bugging.
+
+
+==============================================
+============ TREE'S CONSTRUCTION  ============
+==============================================
+
+We choose to create four classes for the creation of a tree.
+The first one it’s the class tree that regroup each element of the tree.
+The second one it’s the trunk that correspond to the creation of block with a random height.
+The third one that consist to decide where and how many  leaves we want to create  for each tree,
+and the last one the class leaf that create a single leaf.
+We create those  class for the different types of collision each one can do but also
+We define  our classes depending on what characterize a tree, his trunk, the num of leaves and also the leaf itself.
+
+
+==============================================
+============ DECISION OF DESIGN   ============
+==============================================
+
+we had a few dilemma on our design how we wanted to construct our classes.
+First for tree we didn't know how many classes we will do maybe just three, the second for leaf and the third for the
+truck but at the end in order to have clear code we decide to create a fourth.In our bonus we create monster and flags
+and at the beginning we wanted to create them in PepseGameManager but we had problem of collision with truck so
+we decide to create them in the class tree.In fact we create monster and the flag  only if there isn't tree at this
+position.
+
+
+==============================================
+==================  BONUS   ==================
+==============================================
+
+We have decided to make a bonus in order to make the game more attractive and more complex.
+We added 3 things:
+1- lives, our avatar has 3 lives at the start of the game, when he has lost these 3 lives the game will be over
+So we created a counter that counts down to 0 if this counter is equal to 0 then the game is over.
+These lives are also displayed on the screen to inform the player of the number of lives under
+their belt at any time during the game.
+2- monsters: their role is to make our avatar lose lives if he touches them he will lose a life.
+These monsters can also move left or right and are not static.
+We created our monsters in a new class and in avatar we added that if there is a collision with
+the monster then one life will be counted and the avatar will be removed from the game.
+3- an end flag: if our avatar touches the flag, and of course he still has lives to his credit,
+then he will have won the game.
+We have created a new class which creates our flag based on the position and direction of our avatar.
+We also added in this class that if there is a collision with the avatar then this avatar will have won.
+In either case, whether he wons or losts, the player may decide to play again or to quit the game.
+
+
